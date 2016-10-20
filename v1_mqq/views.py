@@ -21,17 +21,17 @@ def home(request):
         if request.method == "POST":
             mqq = Mqq(alias=a, env=e, type=t, deep=d)
             mqq.save()
-            HttpResponse.status_code = '200'
+            #HttpResponse.status_code('999')
         elif request.method == "DELETE":
             mqq = Mqq.objects.get(alias=a, env=e)
             mqq.delete()
-            HttpResponse.status_code = '200'
+            #HttpResponse.status_code = '200'
         elif request.method == "PATCH":
             mqq = Mqq.objects.get(alias=a, env=e)
             mqq.type = t
             mqq.deep = d
             mqq.save()
-            HttpResponse.status_code = '200'
+            #HttpResponse.status_code = '200'
         else:
             HttpResponse.status_code = '501'
             #I don't even think being here
